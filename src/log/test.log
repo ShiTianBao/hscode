@@ -792,3 +792,14 @@
 16:04:10,402  INFO RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Nov 20 16:04:09 CST 2018]; root of context hierarchy
 16:04:10,433  INFO RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Nov 20 16:04:09 CST 2018]; root of context hierarchy
 16:04:10,481  INFO DispatcherServlet:503 - FrameworkServlet 'springmvc': initialization completed in 813 ms
+20:15:16,795  INFO DispatcherServlet:484 - FrameworkServlet 'springmvc': initialization started
+20:15:16,812  INFO XmlWebApplicationContext:510 - Refreshing WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Nov 20 20:15:16 CST 2018]; root of context hierarchy
+20:15:16,839  INFO XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [springmvc-servlet.xml]
+20:15:17,417  INFO AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+20:15:17,537  INFO SimpleUrlHandlerMapping:314 - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+20:15:17,571  INFO RequestMappingHandlerMapping:217 - Mapped "{[/checkLogin],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.td.model.LoginModel com.td.handlers.LoginController.checkLogin(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+20:15:17,572  INFO RequestMappingHandlerMapping:217 - Mapped "{[/retrieve],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.td.model.SearchModel com.td.handlers.RetrieveController.retrieve(java.lang.String,java.lang.String,java.lang.String)
+20:15:17,572  INFO RequestMappingHandlerMapping:217 - Mapped "{[/search],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.td.model.SearchModel> com.td.handlers.SearchController.search(java.lang.String,java.lang.String,java.lang.String)
+20:15:17,853  INFO RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Nov 20 20:15:16 CST 2018]; root of context hierarchy
+20:15:17,888  INFO RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Nov 20 20:15:16 CST 2018]; root of context hierarchy
+20:15:17,940  INFO DispatcherServlet:503 - FrameworkServlet 'springmvc': initialization completed in 1142 ms

@@ -20,7 +20,6 @@ public class LoginController {
             log.setMsg("success");
             Cookie cookie = new Cookie("tdUser", username);
             cookie.setPath("/");
-            System.out.println("已添加===============");
             response.addCookie(cookie);
         }else{
             log.setMsg("error");
