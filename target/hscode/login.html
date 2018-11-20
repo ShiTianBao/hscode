@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link type="text/css" rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="image/logo.ico">
+</head>
+<script type="text/javascript" src="js/checklogin.js"></script>
+<body  class="login_bj">
+    <div>
+        <form>
+
+            <div class="title">
+                <label>sign in</label>
+            </div>
+
+            <<div class="login_user">
+                <label>Username</label>
+                <input id="username" class="login_input">
+                <img src="image/user.svg" width="20px" height="20px" style="float: right">
+            </div>
+
+            <div class="login_password">
+                <label>Password</label>
+                <input id="password" class="login_input" type="password">
+                <img src="image/lock.svg" width="20px" height="20px" style="float: right">
+            </div>
+
+            <button type="button" id="login_btn" class="login_button" onclick="login()">Login</button>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+</body>
+</html>

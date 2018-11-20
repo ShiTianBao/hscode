@@ -1,0 +1,50 @@
+.login_bj{ background:url(../image/background.jpg) no-repeat center center;
+    background-size:cover;
+    background-attachment:fixed;
+    background-color:#CCCCCC;
+    text-align:center
+    }
+.title{
+    margin: 0px auto;
+    color: #FFF;
+    font-size: 50px;
+    margin-top: 50px;
+}
+.login_user{
+    border-bottom:1px solid #FFF;
+    width: 330px; height: 25px;
+    color: #FFF;
+    margin:0px auto;
+    margin-top: 25px;
+}
+.login_password{
+    border-bottom:1px solid #FFF;
+    width: 330px; height: 25px;
+    color: #FFF;
+    margin:0px auto;
+    margin-top: 50px;
+}
+.login_input{
+    width: 200px;
+    height: 25px;
+    background-color:transparent;
+    border-style:none;
+    outline:medium;
+    color: #FFF
+}
+.login_button{
+    width: 330px;
+    height: 50px;
+    display: block;
+    background-color: #d7334e;
+    border: 0px solid;
+    color: #fff;
+    padding: 9px 14px;
+    font-size: 15px;
+    line-height: normal;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 80px;
+    font-size: 20px;
+    cursor:pointer
+}
