@@ -1,8 +1,0 @@
-com\td\model\RetrieveModel.class
-com\td\model\LoginModel.class
-com\td\util\BaiduAPI.class
-com\td\handlers\LoginController.class
-com\td\handlers\RetrieveController.class
-com\td\handlers\SearchController.class
-com\td\model\SearchModel.class
-com\td\util\DBUtils.class
