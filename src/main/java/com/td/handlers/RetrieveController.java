@@ -1,15 +1,14 @@
 package com.td.handlers;
 
-import com.td.model.RetrieveModel;
 import com.td.model.SearchModel;
 import com.td.util.BaiduAPI;
+import com.td.util.DBUtils;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -19,6 +18,7 @@ public class RetrieveController {
     @RequestMapping("retrieve")
     @ResponseBody
     public SearchModel retrieve(String srcResult, String srcRegion, String tgtRegion){
+
         System.out.println(srcResult);
         Connection conn = null;
         PreparedStatement pred;
@@ -30,11 +30,8 @@ public class RetrieveController {
         Double maxScore = 0.0;
         String resultHscode = "";
 
-
-
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hscode181028","root","tuidian");
+            conn = DBUtils.getConnection();
             StringBuilder srcBuilder = new StringBuilder("");
             switch (srcRegion.toLowerCase()) {
                 case "chn" :

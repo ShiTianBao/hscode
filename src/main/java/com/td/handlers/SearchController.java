@@ -1,12 +1,12 @@
 package com.td.handlers;
 
 import com.td.model.SearchModel;
+import com.td.util.DBUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -36,8 +36,7 @@ public class SearchController {
 
 
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hscode181028","root","tuidian");
+            conn = DBUtils.getConnection();
             StringBuilder sbuilder = new StringBuilder("");
             switch (srcRegion.toLowerCase()) {
                 case "chn" :
