@@ -102,6 +102,9 @@ public class RetrieveController {
                 sm.setHscode(tgtRes2.getString("hscode"));
                 sm.setDescription(tgtRes2.getString("description"));
 
+                /*
+                可分离出方法
+                 */
                 switch (tgtRegion.toLowerCase()) {
                     case "chn" :
                         sm.setAdded(tgtRes2.getString("added"));
