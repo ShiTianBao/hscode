@@ -20,26 +20,575 @@
             <div class="layui-col-md6">
                 <label class="layui-form-label">来源国</label>
                 <div class="layui-input-block">
-                    <select name="srcRegion" id="srcRegion" lay-verify="required">
-                        <option value=""></option>
-                        <option value="chn">中国-CHN</option>
-                        <option value="usa">美国-USA</option>
-                        <option value="deu">德国-DEU</option>
-                        <option value="sgp">新加坡-SGP</option>
+                    <select name="srcRegion" id="srcRegion" lay-verify="">
+                        <option value="">请选择</option>
+                        <optgroup label="常用">
+                            <option value="chn">中国-China-CHN</option>
+                            <option value="usa">美国-United States of America-USA</option>
+                            <option value="deu">德国-Germany-DEU</option>
+                            <option value="sgp">新加坡-Singapore-SGP</option>
+                        </optgroup>
+                        <optgroup label="A">
+                            <option value="">阿富汗-Afghanistan-AFG</option>
+                            <option value="">阿尔巴尼亚-Albania-ALB</option>
+                            <option value="">阿尔及利亚-Algeria-DZA</option>
+                            <option value="">安哥拉-Angola-AGO</option>
+                            <option value="">安圭拉岛-Anguilla-AIA</option>
+                            <option value="">安提瓜和巴布达-Antigua and Barbuda-ATG</option>
+                            <option value="">阿根廷-Argentina-ARG</option>
+                            <option value="">亚美尼亚-Armenia-ARM</option>
+                            <option value="">阿鲁巴岛-Aruba-ABW</option>
+                            <option value="">澳大利亚-Australia-AUS</option>
+                            <option value="">奥地利-Austria-AUT</option>
+                            <option value="">阿塞拜疆-Azerbaijan-AZE</option>
+                        </optgroup>
+                        <optgroup label="B">
+                            <option value="">巴哈马群岛-Bahamas-BHS</option>
+                            <option value="">巴林-Bahrain-BHR</option>
+                            <option value="">孟加拉国-Bangladesh-BGD</option>
+                            <option value="">巴巴多斯-Barbados-BRB</option>
+                            <option value="">白俄罗斯-Belarus-BLR</option>
+                            <option value="">比利时-Belgium-BEL</option>
+                            <option value="">伯利兹-Belize-BLZ</option>
+                            <option value="">贝宁-Benin-BEN</option>
+                            <option value="">百慕大-Bermuda-BMU</option>
+                            <option value="">不丹-Bhutan-BTN</option>
+                            <option value="">玻利维亚-Bolivia-BOL</option>
+                            <option value="">波斯尼亚和黑塞哥维那-Bosnia and Herzegovina-BIH</option>
+                            <option value="">博茨瓦纳-Botswana-BWA</option>
+                            <option value="">巴西-Brazil-BRA</option>
+                            <option value="">文莱-Brunei Darussalam-BRN</option>
+                            <option value="">保加利亚-Bulgaria-BGR</option>
+                            <option value="">布基纳法索-Burkina Faso-BFA</option>
+                            <option value="">布隆迪-Burundi-BDI</option>
+                        </optgroup>
+                        <optgroup label="C">
+                            <option value="">佛得角-Cabo Verde-CPV</option>
+                            <option value="">柬埔寨-Cambodia-KHM</option>
+                            <option value="">喀麦隆-Cameroon-CMR</option>
+                            <option value="">加拿大-Canada-CAN</option>
+                            <option value="">开曼群岛-Cayman Islands-CYM</option>
+                            <option value="">中非-Central African Republic-CAF</option>
+                            <option value="">乍得-Chad-TCD</option>
+                            <option value="">智利-Chile-CHL</option>
+                            <option value="">中国-China-CHN</option>
+                            <option value="">哥伦比亚-Colombia-COL</option>
+                            <option value="">科摩罗-Comoros-COM</option>
+                            <option value="">刚果民主共和国-Congo, Democratic Republic of-COD</option>
+                            <option value="">刚果共和国-Congo-COG</option>
+                            <option value="">库克群岛-Cook Islands-COK</option>
+                            <option value="">哥斯达黎加-Costa Rica-CRI</option>
+                            <option value="">科特迪瓦-Côte d'Ivoire-CIV</option>
+                            <option value="">克罗地亚-Croatia-HRV</option>
+                            <option value="">古巴-Cuba-CUB</option>
+                            <option value="">塞浦路斯-Cyprus-CYP</option>
+                            <option value="">捷克共和国-Czech Republic-CZE</option>
+                        </optgroup>
+                        <optgroup label="D">
+                            <option value="">丹麦-Denmark-DNK</option>
+                            <option value="">吉布提-Djibouti-DJI</option>
+                            <option value="">多米尼加-Dominica-DOM</option>
+                        </optgroup>
+                        <optgroup label="E">
+                            <option value="">厄瓜多尔-Ecuador-ECU</option>
+                            <option value="">埃及-Egypt-EGY</option>
+                            <option value="">萨尔瓦多-El Salvador-SLV</option>
+                            <option value="">赤道几内亚-Equatorial Guinea-GNQ</option>
+                            <option value="">厄立特里亚-Eritrea-ERI</option>
+                            <option value="">爱沙尼亚-Estonia-EST</option>
+                            <option value="">斯瓦蒂尼-Eswatini-SWZ</option>
+                            <option value="">埃塞俄比亚-Ethiopia-ETH</option>
+                        </optgroup>
+                        <optgroup label="F">
+                            <option value="">斐济-Fiji-FJI</option>
+                            <option value="">芬兰-Finland-FIN</option>
+                            <option value="">法国-France-FRA</option>
+                            <option value="">法属波利尼西亚-French Polynesia-PYF</option>
+                        </optgroup>
+                        <optgroup label="G">
+                            <option value="">加蓬-Gabon-GAB</option>
+                            <option value="">冈比亚-Gambia-GMB</option>
+                            <option value="">乔治亚州-Georgia-GA</option>
+                            <option value="">德国-Germany-DEU</option>
+                            <option value="">加纳-Ghana-GHA</option>
+                            <option value="">希腊-Greece-GRC</option>
+                            <option value="">格林纳达-Grenada-GRD</option>
+                            <option value="">危地马拉-Guatemala-GTM</option>
+                            <option value="">几内亚-Guinea-GIN</option>
+                            <option value="">几内亚比绍-Guinea-Bissau-GNB</option>
+                            <option value="">圭亚那-Guyana-GUY</option>
+                        </optgroup>
+                        <optgroup label="H">
+                            <option value="">海地-Haiti-HTI</option>
+                            <option value="">洪都拉斯-Honduras-HND</option>
+                            <option value="">香港-Hong Kong-HKG</option>
+                            <option value="">匈牙利-Hungary-HUN</option>
+                        </optgroup>
+                        <optgroup label="I">
+                            <option value="">冰岛-Iceland-ISL</option>
+                            <option value="">印度-India-IND</option>
+                            <option value="">印度尼西亚-Indonesia-IDN</option>
+                            <option value="">伊朗-Iran-IRN</option>
+                            <option value="">爱尔兰-Ireland-IRL</option>
+                            <option value="">以色列-Israel-ISR</option>
+                            <option value="">意大利-Italy-ITA</option>
+                        </optgroup>
+                        <optgroup label="J">
+                            <option value="">牙买加-Jamaica-JAM</option>
+                            <option value="">日本-Japan-JPN</option>
+                            <option value="">约旦-Jordan-JOR</option>
+                        </optgroup>
+                        <optgroup label="K">
+                            <option value="">哈萨克斯坦-Kazakhstan-KAZ</option>
+                            <option value="">肯尼亚-Kenya-KEN</option>
+                            <option value="">基里巴斯-Kiribati-KIR</option>
+                            <option value="">韩国-Korea-KOR</option>
+                            <option value="">科索沃-Kosovo-RKS</option>
+                            <option value="">科威特-Kuwait-KWT</option>
+                            <option value="">吉尔吉斯斯坦-Kyrgyzstan-KGZ</option>
+                        </optgroup>
+                        <optgroup label="L">
+                            <option value="">老挝-Lao-LAO</option>
+                            <option value="">拉脱维亚-Latvia-LVA</option>
+                            <option value="">黎巴嫩-Lebanon-LBN</option>
+                            <option value="">莱索托-Lesotho-LSO</option>
+                            <option value="">利比里亚-Liberia-LBR</option>
+                            <option value="">利比亚-Libya-LBY</option>
+                            <option value="">列支敦士登-Liechtenstein-LIE</option>
+                            <option value="">立陶宛-Lithuania-LTU</option>
+                            <option value="">卢森堡-Luxembourg-LUX</option>
+                        </optgroup>
+                        <optgroup label="M">
+                            <option value="">澳门-Macao-MAC</option>
+                            <option value="">马其顿-Macedonia-MKD</option>
+                            <option value="">马达加斯加-Madagascar-MDG</option>
+                            <option value="">马拉维-Malawi-MWI</option>
+                            <option value="">马来西亚-Malaysia-MYS</option>
+                            <option value="">马尔代夫-Maldives-MDV</option>
+                            <option value="">马里-Mali-MLI</option>
+                            <option value="">马耳他-Malta-MLT</option>
+                            <option value="">毛里塔尼亚-Mauritania-MRT</option>
+                            <option value="">毛里求斯-Mauritius-MUS</option>
+                            <option value="">马约特-Mayotte-MYT</option>
+                            <option value="">墨西哥-Mexico-MEX</option>
+                            <option value="">密克罗尼西亚-Micronesia-FSM</option>
+                            <option value="">摩尔多瓦-Moldova-MDA</option>
+                            <option value="">蒙古-Mongolia-MNG</option>
+                            <option value="">黑山-Montenegro-MNE</option>
+                            <option value="">蒙特塞拉特-Montserrat-MSR</option>
+                            <option value="">摩洛哥-Morocco-MAR</option>
+                            <option value="">莫桑比克-Mozambique-MOZ</option>
+                            <option value="">缅甸-Myanmar-MMR</option>
+                        </optgroup>
+                        <optgroup label="N">
+                            <option value="">纳米比亚-Namibia-NAM</option>
+                            <option value="">瑙鲁-Nauru-NRU</option>
+                            <option value="">尼泊尔-Nepal-NPL</option>
+                            <option value="">荷兰-Netherlands-NLD</option>
+                            <option value="">新西兰-New Zealand-NZL</option>
+                            <option value="">尼加拉瓜-Nicaragua-NIC</option>
+                            <option value="">尼日尔-Niger-NER</option>
+                            <option value="">尼日利亚-Nigeria-NGA</option>
+                            <option value="">挪威-Norway-NOR</option>
+                        </optgroup>
+                        <optgroup label="O">
+                            <option value="">阿曼-Oman-OMN</option>
+                        </optgroup>
+                        <optgroup label="P">
+                            <option value="">巴基斯坦-Pakistan-PAK</option>
+                            <option value="">帕劳-Palau-PLW</option>
+                            <option value="">巴勒斯坦-Palestine-PSE</option>
+                            <option value="">巴拿马-Panama-PAN</option>
+                            <option value="">巴布亚新几内亚-Papua New Guinea-PNG</option>
+                            <option value="">巴拉圭-Paraguay-PRY</option>
+                            <option value="">秘鲁-Peru-PER</option>
+                            <option value="">菲律宾-Philippines-PHL</option>
+                            <option value="">波兰-Poland-POL</option>
+                            <option value="">葡萄牙-Portugal-PRT</option>
+                        </optgroup>
+                        <optgroup label="Q">
+                            <option value="">卡塔尔-Qatar-QAT</option>
+                        </optgroup>
+                        <optgroup label="R">
+                            <option value="">罗马尼亚-Romania-ROM</option>
+                            <option value="">俄罗斯联邦-Russian Federation-RUS</option>
+                            <option value="">卢旺达-Rwanda-RWA</option>
+                        </optgroup>
+                        <optgroup label="S">
+                            <option value="">圣基茨和尼维斯-Saint Kitts and Nevis-KNA</option>
+                            <option value="">圣卢西亚-Saint Lucia-LCA</option>
+                            <option value="">圣皮埃尔和密克隆-Saint Pierre and Miquelon-SPM</option>
+                            <option value="">圣文森特和格林纳丁斯-Saint Vincent and the Grenadines-VCT</option>
+                            <option value="">萨摩亚-Samoa-WSM</option>
+                            <option value="">圣多美和普林西比-Sao Tome and Principe-STP</option>
+                            <option value="">沙特阿拉伯-Saudi Arabia-SAU</option>
+                            <option value="">塞内加尔-Senegal-SEN</option>
+                            <option value="">塞尔维亚和黑山-Serbia & Montenegro-SCG</option>
+                            <option value="">塞尔维亚-Serbia-SRB</option>
+                            <option value="">塞舌尔-Seychelles-SYC</option>
+                            <option value="">塞拉利昂-Sierra Leone-SLE</option>
+                            <option value="">新加坡-Singapore-SGP</option>
+                            <option value="">斯洛伐克-Slovakia-SVK</option>
+                            <option value="">斯洛文尼亚-Slovenia-SVN</option>
+                            <option value="">所罗门群岛-Solomon Islands-SLB</option>
+                            <option value="">南非-South Africa-ZAF</option>
+                            <option value="">西班牙-Spain-ESP</option>
+                            <option value="">斯里兰卡-Sri Lanka-LKA</option>
+                            <option value="">苏丹-Sudan-SDN</option>
+                            <option value="">苏里南-Suriname-SUR</option>
+                            <option value="">瑞典-Sweden-SWE</option>
+                            <option value="">瑞士-Switzerland-CHE</option>
+                            <option value="">叙利亚-Syrian Arab Republic-SYR</option>
+                        </optgroup>
+                        <optgroup label="T">
+                            <option value="">台北-Taipei-TPE</option>
+                            <option value="">塔吉克斯坦-Tajikistan-TJK</option>
+                            <option value="">坦桑尼亚-Tanzania-TZA</option>
+                            <option value="">泰国-Thailand-THA</option>
+                            <option value="">东帝汶-Timor-Leste-TLS</option>
+                            <option value="">多哥-Togo-TGO</option>
+                            <option value="">汤加-Tonga-TON</option>
+                            <option value="">特立尼达和多巴哥-Trinidad and Tobago-TTO</option>
+                            <option value="">突尼斯-Tunisia-TUN</option>
+                            <option value="">土耳其-Turkey-TUR</option>
+                            <option value="">图瓦卢-Tuvalu-TUV</option>
+                        </optgroup>
+                        <optgroup label="U">
+                            <option value="">乌干达-Uganda-UGA</option>
+                            <option value="">乌克兰-Ukraine-UKR</option>
+                            <option value="">阿拉伯联合酋长国-United Arab Emirates-ARE</option>
+                            <option value="">英国-United Kingdom-GBR</option>
+                            <option value="">美国-United States of America-USA</option>
+                            <option value="">乌拉圭-Uruguay-URY</option>
+                            <option value="">乌兹别克斯坦-Uzbekistan-UZB</option>
+                        </optgroup>
+                        <optgroup label="V">
+                            <option value="">瓦努阿图-Vanuatu-VUT</option>
+                            <option value="">委内瑞拉-Venezuela-VEN</option>
+                            <option value="">越南-Viet Nam-VNM</option>
+                        </optgroup>
+                        <optgroup label="W">
+                            <option value="">瓦利斯和富图纳群岛-Wallis and Futuna-WEF</option>
+                        </optgroup>
+                        <optgroup label="Y">
+                            <option value="">也门-Yemen-YEM</option>
+                        </optgroup>
+                        <optgroup label="Z">
+                            <option value="">赞比亚-Zambia-ZMB</option>
+                        </optgroup>
                     </select>
                 </div>
             </div>
             <div class="layui-col-md6">
                 <label class="layui-form-label">目标国</label>
                 <div class="layui-input-block">
-                    <select name="srcRegion" id="tgtRegion" lay-verify="required">
-                        <option value=""></option>
-                        <option value="chn">中国-CHN</option>
-                        <option value="usa">美国-USA</option>
-                        <option value="deu">德国-DEU</option>
-                        <option value="sgp">新加坡-SGP</option>
+                    <select name="tgtRegion" id="tgtRegion" lay-verify="" >
+                        <option value="">请选择</option>
+                        <optgroup label="常用">
+                            <option value="chn">中国-China-CHN</option>
+                            <option value="usa">美国-United States of America-USA</option>
+                            <option value="deu">德国-Germany-DEU</option>
+                            <option value="sgp">新加坡-Singapore-SGP</option>
+                        </optgroup>
+                        <optgroup label="A">
+                            <option value="">阿富汗-Afghanistan-AFG</option>
+                            <option value="">阿尔巴尼亚-Albania-ALB</option>
+                            <option value="">阿尔及利亚-Algeria-DZA</option>
+                            <option value="">安哥拉-Angola-AGO</option>
+                            <option value="">安圭拉岛-Anguilla-AIA</option>
+                            <option value="">安提瓜和巴布达-Antigua and Barbuda-ATG</option>
+                            <option value="">阿根廷-Argentina-ARG</option>
+                            <option value="">亚美尼亚-Armenia-ARM</option>
+                            <option value="">阿鲁巴岛-Aruba-ABW</option>
+                            <option value="">澳大利亚-Australia-AUS</option>
+                            <option value="">奥地利-Austria-AUT</option>
+                            <option value="">阿塞拜疆-Azerbaijan-AZE</option>
+                        </optgroup>
+                        <optgroup label="B">
+                            <option value="">巴哈马群岛-Bahamas-BHS</option>
+                            <option value="">巴林-Bahrain-BHR</option>
+                            <option value="">孟加拉国-Bangladesh-BGD</option>
+                            <option value="">巴巴多斯-Barbados-BRB</option>
+                            <option value="">白俄罗斯-Belarus-BLR</option>
+                            <option value="">比利时-Belgium-BEL</option>
+                            <option value="">伯利兹-Belize-BLZ</option>
+                            <option value="">贝宁-Benin-BEN</option>
+                            <option value="">百慕大-Bermuda-BMU</option>
+                            <option value="">不丹-Bhutan-BTN</option>
+                            <option value="">玻利维亚-Bolivia-BOL</option>
+                            <option value="">波斯尼亚和黑塞哥维那-Bosnia and Herzegovina-BIH</option>
+                            <option value="">博茨瓦纳-Botswana-BWA</option>
+                            <option value="">巴西-Brazil-BRA</option>
+                            <option value="">文莱-Brunei Darussalam-BRN</option>
+                            <option value="">保加利亚-Bulgaria-BGR</option>
+                            <option value="">布基纳法索-Burkina Faso-BFA</option>
+                            <option value="">布隆迪-Burundi-BDI</option>
+                        </optgroup>
+                        <optgroup label="C">
+                            <option value="">佛得角-Cabo Verde-CPV</option>
+                            <option value="">柬埔寨-Cambodia-KHM</option>
+                            <option value="">喀麦隆-Cameroon-CMR</option>
+                            <option value="">加拿大-Canada-CAN</option>
+                            <option value="">开曼群岛-Cayman Islands-CYM</option>
+                            <option value="">中非-Central African Republic-CAF</option>
+                            <option value="">乍得-Chad-TCD</option>
+                            <option value="">智利-Chile-CHL</option>
+                            <option value="">中国-China-CHN</option>
+                            <option value="">哥伦比亚-Colombia-COL</option>
+                            <option value="">科摩罗-Comoros-COM</option>
+                            <option value="">刚果民主共和国-Congo, Democratic Republic of-COD</option>
+                            <option value="">刚果共和国-Congo-COG</option>
+                            <option value="">库克群岛-Cook Islands-COK</option>
+                            <option value="">哥斯达黎加-Costa Rica-CRI</option>
+                            <option value="">科特迪瓦-Côte d'Ivoire-CIV</option>
+                            <option value="">克罗地亚-Croatia-HRV</option>
+                            <option value="">古巴-Cuba-CUB</option>
+                            <option value="">塞浦路斯-Cyprus-CYP</option>
+                            <option value="">捷克共和国-Czech Republic-CZE</option>
+                        </optgroup>
+                        <optgroup label="D">
+                            <option value="">丹麦-Denmark-DNK</option>
+                            <option value="">吉布提-Djibouti-DJI</option>
+                            <option value="">多米尼加-Dominica-DOM</option>
+                        </optgroup>
+                        <optgroup label="E">
+                            <option value="">厄瓜多尔-Ecuador-ECU</option>
+                            <option value="">埃及-Egypt-EGY</option>
+                            <option value="">萨尔瓦多-El Salvador-SLV</option>
+                            <option value="">赤道几内亚-Equatorial Guinea-GNQ</option>
+                            <option value="">厄立特里亚-Eritrea-ERI</option>
+                            <option value="">爱沙尼亚-Estonia-EST</option>
+                            <option value="">斯瓦蒂尼-Eswatini-SWZ</option>
+                            <option value="">埃塞俄比亚-Ethiopia-ETH</option>
+                        </optgroup>
+                        <optgroup label="F">
+                            <option value="">斐济-Fiji-FJI</option>
+                            <option value="">芬兰-Finland-FIN</option>
+                            <option value="">法国-France-FRA</option>
+                            <option value="">法属波利尼西亚-French Polynesia-PYF</option>
+                        </optgroup>
+                        <optgroup label="G">
+                            <option value="">加蓬-Gabon-GAB</option>
+                            <option value="">冈比亚-Gambia-GMB</option>
+                            <option value="">乔治亚州-Georgia-GA</option>
+                            <option value="">德国-Germany-DEU</option>
+                            <option value="">加纳-Ghana-GHA</option>
+                            <option value="">希腊-Greece-GRC</option>
+                            <option value="">格林纳达-Grenada-GRD</option>
+                            <option value="">危地马拉-Guatemala-GTM</option>
+                            <option value="">几内亚-Guinea-GIN</option>
+                            <option value="">几内亚比绍-Guinea-Bissau-GNB</option>
+                            <option value="">圭亚那-Guyana-GUY</option>
+                        </optgroup>
+                        <optgroup label="H">
+                            <option value="">海地-Haiti-HTI</option>
+                            <option value="">洪都拉斯-Honduras-HND</option>
+                            <option value="">香港-Hong Kong-HKG</option>
+                            <option value="">匈牙利-Hungary-HUN</option>
+                        </optgroup>
+                        <optgroup label="I">
+                            <option value="">冰岛-Iceland-ISL</option>
+                            <option value="">印度-India-IND</option>
+                            <option value="">印度尼西亚-Indonesia-IDN</option>
+                            <option value="">伊朗-Iran-IRN</option>
+                            <option value="">爱尔兰-Ireland-IRL</option>
+                            <option value="">以色列-Israel-ISR</option>
+                            <option value="">意大利-Italy-ITA</option>
+                        </optgroup>
+                        <optgroup label="J">
+                            <option value="">牙买加-Jamaica-JAM</option>
+                            <option value="">日本-Japan-JPN</option>
+                            <option value="">约旦-Jordan-JOR</option>
+                        </optgroup>
+                        <optgroup label="K">
+                            <option value="">哈萨克斯坦-Kazakhstan-KAZ</option>
+                            <option value="">肯尼亚-Kenya-KEN</option>
+                            <option value="">基里巴斯-Kiribati-KIR</option>
+                            <option value="">韩国-Korea-KOR</option>
+                            <option value="">科索沃-Kosovo-RKS</option>
+                            <option value="">科威特-Kuwait-KWT</option>
+                            <option value="">吉尔吉斯斯坦-Kyrgyzstan-KGZ</option>
+                        </optgroup>
+                        <optgroup label="L">
+                            <option value="">老挝-Lao-LAO</option>
+                            <option value="">拉脱维亚-Latvia-LVA</option>
+                            <option value="">黎巴嫩-Lebanon-LBN</option>
+                            <option value="">莱索托-Lesotho-LSO</option>
+                            <option value="">利比里亚-Liberia-LBR</option>
+                            <option value="">利比亚-Libya-LBY</option>
+                            <option value="">列支敦士登-Liechtenstein-LIE</option>
+                            <option value="">立陶宛-Lithuania-LTU</option>
+                            <option value="">卢森堡-Luxembourg-LUX</option>
+                        </optgroup>
+                        <optgroup label="M">
+                            <option value="">澳门-Macao-MAC</option>
+                            <option value="">马其顿-Macedonia-MKD</option>
+                            <option value="">马达加斯加-Madagascar-MDG</option>
+                            <option value="">马拉维-Malawi-MWI</option>
+                            <option value="">马来西亚-Malaysia-MYS</option>
+                            <option value="">马尔代夫-Maldives-MDV</option>
+                            <option value="">马里-Mali-MLI</option>
+                            <option value="">马耳他-Malta-MLT</option>
+                            <option value="">毛里塔尼亚-Mauritania-MRT</option>
+                            <option value="">毛里求斯-Mauritius-MUS</option>
+                            <option value="">马约特-Mayotte-MYT</option>
+                            <option value="">墨西哥-Mexico-MEX</option>
+                            <option value="">密克罗尼西亚-Micronesia-FSM</option>
+                            <option value="">摩尔多瓦-Moldova-MDA</option>
+                            <option value="">蒙古-Mongolia-MNG</option>
+                            <option value="">黑山-Montenegro-MNE</option>
+                            <option value="">蒙特塞拉特-Montserrat-MSR</option>
+                            <option value="">摩洛哥-Morocco-MAR</option>
+                            <option value="">莫桑比克-Mozambique-MOZ</option>
+                            <option value="">缅甸-Myanmar-MMR</option>
+                        </optgroup>
+                        <optgroup label="N">
+                            <option value="">纳米比亚-Namibia-NAM</option>
+                            <option value="">瑙鲁-Nauru-NRU</option>
+                            <option value="">尼泊尔-Nepal-NPL</option>
+                            <option value="">荷兰-Netherlands-NLD</option>
+                            <option value="">新西兰-New Zealand-NZL</option>
+                            <option value="">尼加拉瓜-Nicaragua-NIC</option>
+                            <option value="">尼日尔-Niger-NER</option>
+                            <option value="">尼日利亚-Nigeria-NGA</option>
+                            <option value="">挪威-Norway-NOR</option>
+                        </optgroup>
+                        <optgroup label="O">
+                            <option value="">阿曼-Oman-OMN</option>
+                        </optgroup>
+                        <optgroup label="P">
+                            <option value="">巴基斯坦-Pakistan-PAK</option>
+                            <option value="">帕劳-Palau-PLW</option>
+                            <option value="">巴勒斯坦-Palestine-PSE</option>
+                            <option value="">巴拿马-Panama-PAN</option>
+                            <option value="">巴布亚新几内亚-Papua New Guinea-PNG</option>
+                            <option value="">巴拉圭-Paraguay-PRY</option>
+                            <option value="">秘鲁-Peru-PER</option>
+                            <option value="">菲律宾-Philippines-PHL</option>
+                            <option value="">波兰-Poland-POL</option>
+                            <option value="">葡萄牙-Portugal-PRT</option>
+                        </optgroup>
+                        <optgroup label="Q">
+                            <option value="">卡塔尔-Qatar-QAT</option>
+                        </optgroup>
+                        <optgroup label="R">
+                            <option value="">罗马尼亚-Romania-ROM</option>
+                            <option value="">俄罗斯联邦-Russian Federation-RUS</option>
+                            <option value="">卢旺达-Rwanda-RWA</option>
+                        </optgroup>
+                        <optgroup label="S">
+                            <option value="">圣基茨和尼维斯-Saint Kitts and Nevis-KNA</option>
+                            <option value="">圣卢西亚-Saint Lucia-LCA</option>
+                            <option value="">圣皮埃尔和密克隆-Saint Pierre and Miquelon-SPM</option>
+                            <option value="">圣文森特和格林纳丁斯-Saint Vincent and the Grenadines-VCT</option>
+                            <option value="">萨摩亚-Samoa-WSM</option>
+                            <option value="">圣多美和普林西比-Sao Tome and Principe-STP</option>
+                            <option value="">沙特阿拉伯-Saudi Arabia-SAU</option>
+                            <option value="">塞内加尔-Senegal-SEN</option>
+                            <option value="">塞尔维亚和黑山-Serbia & Montenegro-SCG</option>
+                            <option value="">塞尔维亚-Serbia-SRB</option>
+                            <option value="">塞舌尔-Seychelles-SYC</option>
+                            <option value="">塞拉利昂-Sierra Leone-SLE</option>
+                            <option value="">新加坡-Singapore-SGP</option>
+                            <option value="">斯洛伐克-Slovakia-SVK</option>
+                            <option value="">斯洛文尼亚-Slovenia-SVN</option>
+                            <option value="">所罗门群岛-Solomon Islands-SLB</option>
+                            <option value="">南非-South Africa-ZAF</option>
+                            <option value="">西班牙-Spain-ESP</option>
+                            <option value="">斯里兰卡-Sri Lanka-LKA</option>
+                            <option value="">苏丹-Sudan-SDN</option>
+                            <option value="">苏里南-Suriname-SUR</option>
+                            <option value="">瑞典-Sweden-SWE</option>
+                            <option value="">瑞士-Switzerland-CHE</option>
+                            <option value="">叙利亚-Syrian Arab Republic-SYR</option>
+                        </optgroup>
+                        <optgroup label="T">
+                            <option value="">台北-Taipei-TPE</option>
+                            <option value="">塔吉克斯坦-Tajikistan-TJK</option>
+                            <option value="">坦桑尼亚-Tanzania-TZA</option>
+                            <option value="">泰国-Thailand-THA</option>
+                            <option value="">东帝汶-Timor-Leste-TLS</option>
+                            <option value="">多哥-Togo-TGO</option>
+                            <option value="">汤加-Tonga-TON</option>
+                            <option value="">特立尼达和多巴哥-Trinidad and Tobago-TTO</option>
+                            <option value="">突尼斯-Tunisia-TUN</option>
+                            <option value="">土耳其-Turkey-TUR</option>
+                            <option value="">图瓦卢-Tuvalu-TUV</option>
+                        </optgroup>
+                        <optgroup label="U">
+                            <option value="">乌干达-Uganda-UGA</option>
+                            <option value="">乌克兰-Ukraine-UKR</option>
+                            <option value="">阿拉伯联合酋长国-United Arab Emirates-ARE</option>
+                            <option value="">英国-United Kingdom-GBR</option>
+                            <option value="">美国-United States of America-USA</option>
+                            <option value="">乌拉圭-Uruguay-URY</option>
+                            <option value="">乌兹别克斯坦-Uzbekistan-UZB</option>
+                        </optgroup>
+                        <optgroup label="V">
+                            <option value="">瓦努阿图-Vanuatu-VUT</option>
+                            <option value="">委内瑞拉-Venezuela-VEN</option>
+                            <option value="">越南-Viet Nam-VNM</option>
+                        </optgroup>
+                        <optgroup label="W">
+                            <option value="">瓦利斯和富图纳群岛-Wallis and Futuna-WEF</option>
+                        </optgroup>
+                        <optgroup label="Y">
+                            <option value="">也门-Yemen-YEM</option>
+                        </optgroup>
+                        <optgroup label="Z">
+                            <option value="">赞比亚-Zambia-ZMB</option>
+                        </optgroup>
+
+
                     </select>
                 </div>
+            </div>
+        </div>
+        <div class="layui-form-item layui-row">
+            <label class="layui-form-label">类别选择</label>
+            <div class="layui-input-inline">
+                <select id="section" lay-filter="section">
+                    <option value=""></option>
+                    <option value="01">LIVE ANIMALS; ANIMAL PRODUCTS</option>
+                    <option value="02">VEGETABLE PRODUCTS</option>
+                    <option value="03">ANIMAL OR VEGETABLE FATS AND OILS AND THEIR CLEAVAGE PRODUCTS; PREPARED EDIBLE FATS; ANIMAL OR VEGETABLE WAXES</option>
+                    <option value="04">PREPARED FOODSTUFFS; BEVERAGES, SPIRITS AND VINEGAR; TOBACCO AND MANUFACTURED TOBACCO SUBSTITUTES</option>
+                    <option value="05">MINERAL PRODUCTS</option>
+                    <option value="06">PRODUCTS OF THE CHEMICAL OR ALLIED INDUSTRIES</option>
+                    <option value="07">PLASTICS AND ARTICLES THEREOF; RUBBER AND ARTICLES THEREOF</option>
+                    <option value="08">RAW HIDES AND SKINS, LEATHER, FURSKINS AND ARTICLES THEREOF; SADDLERY AND HARNESS; TRAVEL GOODS, HANDBAGS AND SIMILAR CONTAINERS; ARTICLES OF ANIMAL GUT (OTHER THAN SILK-WORM GUT)</option>
+                    <option value="09">WOOD AND ARTICLES OF WOOD; WOOD CHARCOAL; CORK AND ARTICLES OF CORK; MANUFACTURES OF STRAW, OF ESPARTO OR OF OTHER PLAITING MATERIALS; BASKETWARE AND WICKERWORK</option>
+                    <option value="10">PULP OF WOOD OR OF OTHER FIBROUS CELLULOSIC MATERIAL; RECOVERED (WASTE AND SCRAP) PAPER OR PAPERBOARD; PAPER AND PAPERBOARD AND ARTICLES THEREOF</option>
+                    <option value="11">TEXTILES AND TEXTILE ARTICLES</option>
+                    <option value="12">FOOTWEAR, HEADGEAR, UMBRELLAS, SUN UMBRELLAS, WALKING–STICKS, SEAT-STICKS, WHIPS, RIDING-CROPS AND PARTS THEREOF; PREPARED FEATHERS AND ARTICLES MADE THEREWITH;ARTIFICIAL FLOWERS; ARTICLES OF HUMAN HAIR</option>
+                    <option value="13">ARTICLES OF STONE, PLASTER, CEMENT, ASBESTOS, MICA OR SIMILAR MATERIALS; CERAMIC PRODUCTS; GLASS AND GLASSWARE</option>
+                    <option value="14">NATURAL OR CULTURED PEARLS, PRECIOUS OR SEMI-PRECIOUS STONES, PRECIOUS METALS, METALS CLAD WITH PRECIOUS METAL AND ARTICLES THEREOF; IMITATION JEWELLERY; COIN</option>
+                    <option value="15">BASE METALS AND ARTICLES OF BASE METAL</option>
+                    <option value="16">MACHINERY AND MECHANICAL APPLIANCES; ELECTRICAL EQUIPMENT; PARTS THEREOF; SOUND RECORDERS AND REPRODUCERS, TELEVISION IMAGE AND SOUND RECORDERS AND REPRODUCERS, AND PARTS AND ACCESSORIES OF SUCH ARTICLES</option>
+                    <option value="17">VEHICLES, AIRCRAFT, VESSELS AND ASSOCIATED TRANSPORT EQUIPMENT</option>
+                    <option value="18">OPTICAL, PHOTOGRAPHIC, CINEMATOGRAPHIC, MEASURING, CHECKING, PRECISION, MEDICAL OR SURGICAL INSTRUMENTS AND APPARATUS; CLOCKS AND WATCHES; MUSICAL INSTRUMENTS; PARTS AND ACCESSORIES THEREOF</option>
+                    <option value="19">ARMS AND AMMUNITION; PARTS AND ACCESSORIES THEREOF</option>
+                    <option value="20">MISCELLANEOUS MANUFACTURED ARTICLES</option>
+                    <option value="21">WORKS OF ART, COLLECTORS’ PIECES AND ANTIQUES</option>
+                </select>
+            </div>
+            <label class="layui-form-label">章选择</label>
+            <div class="layui-input-inline">
+                <select id="chapter" lay-filter="chapter">
+                    <option value=""></option>
+                </select>
+            </div>
+            <label class="layui-form-label">主标题选择</label>
+            <div class="layui-input-inline">
+                <select id="heading" lay-filter="heading">
+                    <option value=""></option>
+                </select>
+            </div>
+            <label class="layui-form-label">副标题选择</label>
+            <div class="layui-input-inline">
+                <select id="sub_heading" lay-filter="sub_heading">
+                    <option value=""></option>
+                </select>
             </div>
         </div>
         <div class="layui-row layui-form-item">
@@ -53,7 +602,7 @@
         <div class="layui-row layui-form-item">
             <div class="layui-col-md12">
                 <div class="layui-col-md11">
-                    <label class="layui-form-label">补充说明</label>
+                    <label class="layui-form-label">商品扩展</label>
                     <div class="layui-input-block">
                         <input type="text" name="assKeyWord" id="assKeyWord"  autocomplete="off" placeholder="请输入补充说明" class="layui-input">
                     </div>
@@ -63,6 +612,9 @@
                 </div>
             </div>
         </div>
+<!--        <div class="layui-row">
+            <label class="layui-form-label">查询结果</label>
+        </div>-->
         <div class="layui-row layui-form-item">
             <table id="srcResultTable" lay-filter="resultTable" lay-skin="line"></table>
         </div>
@@ -89,11 +641,11 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th>HSCODE编码</th>
-                    <th>描述</th>
-                    <th>增值税率</th>
-                    <th>进口一般税率</th>
-                    <th>进口优惠税率</th>
+                    <th width="20%">HSCODE编码</th>
+                    <th width="20%">描述</th>
+                    <th width="20%">增值税率</th>
+                    <th width="20%">进口一般税率</th>
+                    <th width="20%">进口优惠税率</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -113,11 +665,133 @@
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/search.js"></script>
     <script type="text/javascript" src="../../js/retrieve.js"></script>
+    <script type="text/javascript" src="../../js/select.js"></script>
+
+
     <script>
         layui.use('form', function(){
             var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
 
             //……
+            form.on('select(section)', function(data){
+                var section = data.value;
+                console.log(section);
+                var param = {
+                    'section' : section
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '../../section',
+                    data: param,
+                    success: function(data){
+                        console.log(data);
+                        $("#chapter").html("<option value=''></option>");
+                        $("#heading").html("<option value=''></option>");
+                        $("#sub_heading").html("<option value=''></option>");
+                        for(var i=0; i<data.length; i++) {
+                            console.log(data[i]);
+                            var option = "<option value = '" + data[i]['hscode'] +"'>" + data[i]['description'] + "</option>";
+                            $("#chapter").append(option);
+                        }
+                        form.render('select');
+                    }
+                });
+            });
+
+            form.on('select(chapter)', function(data){
+                var chapter = data.value;
+                console.log(chapter);
+                var param = {
+                    'chapter' : chapter
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '../../chapter',
+                    data: param,
+                    success: function(data){
+                        console.log(data);
+                        $("#heading").html("<option value=''></option>");
+                        $("#sub_heading").html("<option value=''></option>");
+                        for(var i=0; i<data.length; i++) {
+                            console.log(data[i]);
+                            var option = "<option value = '" + data[i]['hscode'] +"'>" + data[i]['description'] + "</option>";
+                            $("#heading").append(option);
+                        }
+                        form.render('select');
+                    }
+                });
+            });
+
+            form.on('select(heading)', function(data){
+                var heading = data.value;
+                console.log(heading);
+                var param = {
+                    'heading' : heading
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '../../heading',
+                    data: param,
+                    success: function(data){
+                        console.log(data);
+                        $("#sub_heading").html("<option value=''></option>");
+                        for(var i=0; i<data.length; i++) {
+                            console.log(data[i]);
+                            var option = "<option value = '" + data[i]['hscode'] +"'>" + data[i]['description'] + "</option>";
+                            $("#sub_heading").append(option);
+                        }
+                        form.render('select');
+                    }
+                });
+            });
+
+            form.on('select(sub_heading)', function(data){
+                var sub_heading = data.value;
+                console.log(sub_heading);
+                var param = {
+                    'subHeading' : sub_heading
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '../../sub_heading',
+                    data: param,
+                    success: function(res){
+                        console.log(res);
+
+                        layui.use('table', function(){
+                            var table = layui.table;
+                            table.render({
+                                elem: '#srcResultTable'
+                                ,height: 170
+                                ,url: '../json/data_table.json' //数据接口
+                                ,parseData: function(res1){ //res 即为原始返回的数据
+                                    return {
+                                        "code": 0, //解析接口状态
+                                        "msg": '', //解析提示文本
+                                        "count": res.count, //解析数据长度
+                                        "data": res //解析数据列表
+                                    };
+                                }
+                                ,page: false //开启分页
+                                ,cols: [[ //表头
+                                    {field: 'hscode', title: 'HSCODE编码', fixed: 'left'}
+                                    ,{field: 'description', title: '描述'}
+                                    ,{field: 'added', title: '增值税率', sort: true,}
+                                    ,{field: 'general', title: '进口一般税率', sort: true,}
+                                    ,{field: 'favor', title: '进口优惠税率', sort: true,}
+                                ]]
+                            });
+                        });
+                       // $("#sub_heading").html("<option value=''></option>");
+                        //for(var i=0; i<data.length; i++) {
+                       //     console.log(data[i]);
+                        //    var option = "<option value = '" + data[i]['hscode'] +"'>" + data[i]['description'] + "</option>";
+                        //    $("#sub_heading").append(option);
+                       // }
+                        form.render('select');
+                    }
+                });
+            });
 
             //但是，如果你的HTML是动态生成的，自动渲染就会失效
             //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
@@ -126,9 +800,11 @@
         layui.use('table', function(){
             var table = layui.table;
             var data = {"code":0,"msg":"","count":1000,"data":[]};            //第一个实例
+
+
             table.render({
                 elem: '#srcResultTable'
-                ,height: 270
+                ,height: 170
                 ,url: '../json/data_table.json' //数据接口
                 ,parseData: function(res){ //res 即为原始返回的数据
                     res = data;
@@ -147,6 +823,16 @@
                     ,{field: 'general', title: '进口一般税率', sort: true,}
                     ,{field: 'favor', title: '进口优惠税率', sort: true,}
                 ]]
+            })
+
+            //监听行单击事件
+            table.on('row(resultTable)', function(obj){
+                console.log(obj.tr) //得到当前行元素对象
+                console.log(obj.data) //得到当前行数据
+                var resData = obj.data;
+                $("#srcResult").val(resData['hscode'] + ' : ' + resData['description']);
+                //obj.del(); //删除当前行
+                //obj.update(fields) //修改当前行数据
             });
         });
     </script>

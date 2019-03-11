@@ -5,6 +5,11 @@ function search() {
     var srcRegion = $('#srcRegion').val();
     var srcKeyWord = $('#srcKeyWord').val();
     var assKeyWord = $('#assKeyWord').val();
+    var subHeading = $('#sub_heading').val();
+    if((srcRegion === '')){
+        alert('尚未开通该国的查询服务');
+        return;
+    }
     if (srcKeyWord.length === 0) {
     	alert('描述不能为空！');
         return;
@@ -14,7 +19,8 @@ function search() {
     var data = {
         'srcRegion': srcRegion,
         'srcKeyWord': srcKeyWord,
-        'assKeyWord': assKeyWord
+        'assKeyWord': assKeyWord,
+        'subHeading' : subHeading
     };
     $.ajax({
         cache: true,
@@ -32,7 +38,7 @@ function search() {
                 var table = layui.table;
                 table.render({
                     elem: '#srcResultTable'
-                    ,height: 270
+                    ,height: 170
                     ,url: '../json/data_table.json' //数据接口
                     ,parseData: function(res1){ //res 即为原始返回的数据
                         return {
@@ -62,36 +68,6 @@ function search() {
                     //obj.update(fields) //修改当前行数据
                 });
             });
-
-           /* var s = JSON.parse(res);
-            var data = s['src'];
-            var trf = s['trf'];
-            console.log(data);            
-            
-            var Msg = data['Msg'];
-           
-            console.log(trf);
-            
-            
-            if(Msg === 'Success'){
-           		$('#srcResultTable tbody').html('');
-            	for(var hscode in data){
-            		if(hscode !== 'Msg'){
-            			console.log(hscode);
-            			var description = data[hscode];
-            			var trfvat = trf['trfvat'+hscode];            		
-            			var trfimport = trf['trfimport' + hscode];          
-            			var trfpreferim = trf['trfpreferim' + hscode];
-            			if(trfpreferim.length === 0) trfpreferim = ' ';
-            		$('#srcResultTable tbody').append("<tr class='srcResultTr'><td>"+hscode+"</td><td>"+description+"</td><td>"+trfvat+"</td><td>"+trfimport+"</td><td>"+trfpreferim+"</td></tr>");
-            		}
-            	}
-            	$('#srcResultTable tbody').append('<script>$(".srcResultTr").click((event)=>{let hscode = event.currentTarget.cells[0].innerHTML+":"+event.currentTarget.cells[1].innerHTML;$("#srcResult").val(hscode.replace(/<font color=\\"red\\">/g,"").replace(/<\\/font>/g,""));});</script>');
-            	
-            }else{
-            	$('#srcResultTable tbody').html('未查询到相关数据');
-            }*/
-            
         }
     });
 }

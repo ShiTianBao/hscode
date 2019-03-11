@@ -1,4 +1,4 @@
-package com.td.handlers;
+package com.td.controller;
 
 import com.td.model.SearchModel;
 import com.td.util.BaiduAPI;
@@ -11,24 +11,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class RetrieveController {
 
     @RequestMapping("retrieve")
     @ResponseBody
-    public SearchModel retrieve(String srcResult, String srcRegion, String tgtRegion){
+    public List<SearchModel> retrieve(String srcResult, String srcRegion, String tgtRegion){
 
         System.out.println(srcResult);
         Connection conn = null;
         PreparedStatement pred;
-        SearchModel sm = new SearchModel();
         String[] srcResults = srcResult.trim().split(":|：");
         String hscode = srcResults[0];
         String srcDes = "default text";
-        String head = hscode.substring(0, 4);
+        String head = hscode.substring(0, 6);
         Double maxScore = 0.0;
+        Double maxScore2 = 0.0;
+        Double maxScore3 = 0.0;
         String resultHscode = "";
+        String resultHscode2 = "";
+        String resultHscode3 = "";
+        List<SearchModel> list = new ArrayList<>();
 
         try{
             conn = DBUtils.getConnection();
@@ -59,19 +65,19 @@ public class RetrieveController {
             switch (tgtRegion.toLowerCase()) {
                 case "chn" :
                     tgtBuilder.append("select * from intl_chn where hscode like ?");
-                    tgtBuilder2.append("select * from local_chn where hscode = ?");
+                    tgtBuilder2.append("select * from local_chn where hscode = ? or hscode = ? or hscode = ?");
                     break;
                 case "usa" :
                     tgtBuilder.append("select * from intl_usa where hscode like ?");
-                    tgtBuilder2.append("select * from local_usa where hscode = ?");
+                    tgtBuilder2.append("select * from local_usa where hscode = ? or hscode = ? or hscode = ?");
                     break;
                 case "deu" :
                     tgtBuilder.append("select * from intl_deu where hscode like ?");
-                    tgtBuilder2.append("select * from local_deu where hscode = ?");
+                    tgtBuilder2.append("select * from local_deu where hscode = ? or hscode = ? or hscode = ?");
                     break;
                 case "sgp" :
                     tgtBuilder.append("select * from intl_sgp where hscode like ?");
-                    tgtBuilder2.append("select * from local_sgp where hscode = ?");
+                    tgtBuilder2.append("select * from local_sgp where hscode = ? or hscode = ? or hscode = ?");
                     break;
             }
             pred = conn.prepareStatement(tgtBuilder.toString());
@@ -86,8 +92,23 @@ public class RetrieveController {
                         System.out.println(result.toString(2));
                         Double score = result.getDouble("score");
                         if(score >= maxScore) {
+                            maxScore3 = maxScore2;
+                            maxScore2 = maxScore;
                             maxScore = score;
+
+                            resultHscode3 = resultHscode2;
+                            resultHscode2 = resultHscode;
                             resultHscode = tgtRes.getString("hscode");
+
+                        }else if(score >= maxScore2) {
+                            maxScore3 = maxScore2;
+                            maxScore2 = score;
+
+                            resultHscode3 = resultHscode2;
+                            resultHscode2 = tgtRes.getString("hscode");
+                        }else if(score >= maxScore3) {
+                            maxScore3 = score;
+                            resultHscode3 = tgtRes.getString("hscode");
                         }
                     }catch (Exception e) {
                         continue;
@@ -96,9 +117,14 @@ public class RetrieveController {
             }
             pred = conn.prepareStatement(tgtBuilder2.toString());
             pred.setObject(1, resultHscode);
+            pred.setObject(2, resultHscode2);
+            pred.setObject(3, resultHscode3);
             System.out.println("target"+pred.toString());
             ResultSet tgtRes2 = pred.executeQuery();
-            if(tgtRes2.next()) {
+            while(tgtRes2.next()) {
+
+                SearchModel sm = new SearchModel();
+
                 sm.setHscode(tgtRes2.getString("hscode"));
                 sm.setDescription(tgtRes2.getString("description"));
 
@@ -127,6 +153,8 @@ public class RetrieveController {
                         sm.setGeneral(tgtRes2.getString("gst"));
                         break;
                 }
+
+                list.add(sm);
             }
 
         }catch (Exception e) {
@@ -134,8 +162,15 @@ public class RetrieveController {
         }
 
 
-        System.out.println("sm"+sm.toString());
-        return sm;
+        /**
+         * 临时
+         */
+        SearchModel lsm = list.get(0);
+        list.clear();
+        list.add(lsm);
+
+        return list;
+
     }
 
 }

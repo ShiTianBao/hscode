@@ -1,4 +1,4 @@
-package com.td.handlers;
+package com.td.controller;
 
 import com.td.model.SearchModel;
 import com.td.util.DBUtils;
@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 public class SearchController {
 
-    private List<SearchModel> s(String srcRegion, String srcKeyWord) {
+    private List<SearchModel> s(String srcRegion, String srcKeyWord, String subHeading) {
         System.out.println(srcRegion);
         System.out.println(srcKeyWord);
         Connection conn = null;
@@ -60,11 +60,13 @@ public class SearchController {
                     sbuilder.append("and description like ?");
                 }
             }
+            sbuilder.append("and length(hscode)>6");
             System.out.println(sbuilder.toString());
             pred = conn.prepareStatement(sbuilder.toString());
             for(int i=0; i<srcKeyWords.length; i++) {
                 pred.setObject(i+1, "%" +srcKeyWords[i] + "%");
             }
+            // pred.setObject(srcKeyWords.length + 1, subHeading + "%");
             System.out.println(pred.toString());
             ResultSet res = pred.executeQuery();
             while(res.next()){
@@ -111,12 +113,12 @@ public class SearchController {
 
     @RequestMapping("search")
     @ResponseBody
-    public List<SearchModel> search(String srcRegion, String srcKeyWord, String assKeyWord) {
+    public List<SearchModel> search(String srcRegion, String srcKeyWord, String assKeyWord, String subHeading) {
         System.out.println(assKeyWord);
-        List<SearchModel> l1 = s(srcRegion,srcKeyWord);
+        List<SearchModel> l1 = s(srcRegion,srcKeyWord,subHeading);
         List<SearchModel> l2 = new ArrayList<>();
         if(assKeyWord.length()>0) {
-            l2 = s(srcRegion, assKeyWord);
+            l2 = s(srcRegion, assKeyWord,subHeading);
         }
         boolean isSame = false;
         for(SearchModel sm2 : l2) {
