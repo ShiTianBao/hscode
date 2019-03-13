@@ -117,8 +117,8 @@ public class RetrieveController {
             }
             pred = conn.prepareStatement(tgtBuilder2.toString());
             pred.setObject(1, resultHscode);
-            pred.setObject(2, resultHscode2);
-            pred.setObject(3, resultHscode3);
+            pred.setObject(2, resultHscode);
+            pred.setObject(3, resultHscode);
             System.out.println("target"+pred.toString());
             ResultSet tgtRes2 = pred.executeQuery();
             while(tgtRes2.next()) {

@@ -13,63 +13,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class SearchController {
+public class ChangeController {
 
-    private List<SearchModel> s(String srcRegion, String srcKeyWord, String subHeading) {
+    @RequestMapping("/change")
+    @ResponseBody
+    public List<SearchModel> changeHscode(String headHscode, String srcRegion) {
+        System.out.println(headHscode);
         System.out.println(srcRegion);
-        System.out.println(srcKeyWord);
         Connection conn = null;
         PreparedStatement pred;
         List<SearchModel> resultList = new ArrayList<>();
-
-
-        //去掉首尾空格
-        srcKeyWord = srcKeyWord.trim();
-        //assKeyWord = assKeyWord.trim();
-
-        //将关键词分开
-        String[] srcKeyWords = srcKeyWord.split(";|,|\\s+");
-        //String[] assKeyWords = assKeyWord.split(";|,|\\s+");
-
-
-        System.out.println(srcRegion);
-
 
         try{
             conn = DBUtils.getConnection();
             StringBuilder sbuilder = new StringBuilder("");
             switch (srcRegion.toLowerCase()) {
                 case "chn" :
-                    sbuilder.append("select * from local_chn where ");
+                    sbuilder.append("select * from local_chn where hscode like ?");
                     break;
                 case "usa" :
-                    sbuilder.append("select * from local_usa where ");
+                    sbuilder.append("select * from local_usa where hscode like ?");
                     break;
                 case "deu" :
-                    sbuilder.append("select * from local_deu where ");
+                    sbuilder.append("select * from local_deu where hscode like ?");
                     break;
                 case "sgp" :
-                    sbuilder.append("select * from local_sgp where ");
+                    sbuilder.append("select * from local_sgp where hscode like ?");
                     break;
-
             }
-            for(int i=0; i<srcKeyWords.length; i++) {
-                if(i == 0) {
-                    sbuilder.append("description like ? ");
-                }else{
-                    sbuilder.append("and description like ?");
-                }
-            }
-            sbuilder.append("and length(hscode)>6");
-            System.out.println(sbuilder.toString());
             pred = conn.prepareStatement(sbuilder.toString());
-            for(int i=0; i<srcKeyWords.length; i++) {
-                pred.setObject(i+1, "%" +srcKeyWords[i] + "%");
-            }
-            // pred.setObject(srcKeyWords.length + 1, subHeading + "%");
-            System.out.println(pred.toString());
+            pred.setObject(1, headHscode+"%");
             ResultSet res = pred.executeQuery();
-            while(res.next()){
+            while(res.next()) {
                 String hscode = res.getString("hscode");
                 if(hscode.length()>=8) {
                     SearchModel sm = new SearchModel();
@@ -99,40 +74,13 @@ public class SearchController {
                             break;
 
                     }
-
                     resultList.add(sm);
                 }
-
             }
-        }catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
-
-        return resultList;
+        return  resultList;
     }
 
-    @RequestMapping("search")
-    @ResponseBody
-    public List<SearchModel> search(String srcRegion, String srcKeyWord, String assKeyWord, String subHeading) {
-        System.out.println(assKeyWord);
-        List<SearchModel> l1 = s(srcRegion,srcKeyWord,subHeading);
-        List<SearchModel> l2 = new ArrayList<>();
-//        if(assKeyWord.length()>0) {
-//            l2 = s(srcRegion, assKeyWord,subHeading);
-//        }
-        boolean isSame = false;
-        for(SearchModel sm2 : l2) {
-            isSame = false;
-            String hscode = sm2.getHscode();
-            for(SearchModel sm1 : l1) {
-                if(hscode.equals(sm1.getHscode())){
-                    isSame = true;
-                }
-            }
-            if(!isSame){
-                l1.add(sm2);
-            }
-        }
-        return l1;
-    }
 }
