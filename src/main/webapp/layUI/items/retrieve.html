@@ -17,14 +17,6 @@
     </fieldset>
     <form class="layui-form">
 
-        <div class="layui-form-item layui-row">
-            <label class="layui-form-label">查询方式</label>
-            <div class="layui-input-block">
-                <input type="radio" name="search_method" lay-filter="search_method" value="1" title="按关键词查询" checked>
-                <input type="radio" name="search_method" lay-filter="search_method" value="2" title="按章节查询">
-                <input type="radio" name="search_method" lay-filter="search_method" value="3" title="按hscode查询">
-            </div>
-        </div>
 
         <div class="layui-row layui-form-item">
             <div class="layui-col-md6">
@@ -555,16 +547,39 @@
             </div>
         </div>
 
-        <div id="method1" class="layui-row layui-form-item" style="display:block">
-            <div class="layui-col-md12">
-                <div class="layui-col-md11">
-                    <label class="layui-form-label">商品描述</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="srcKeyWord" id="srcKeyWord"  autocomplete="off" placeholder="请输入关键词" class="layui-input">
+        <div class="layui-form-item layui-row">
+            <label class="layui-form-label">查询方式</label>
+            <div class="layui-input-block">
+                <input type="radio" name="search_method" lay-filter="search_method" value="1" title="按关键词查询" checked>
+                <input type="radio" name="search_method" lay-filter="search_method" value="2" title="按章节查询">
+                <input type="radio" name="search_method" lay-filter="search_method" value="3" title="按hscode查询">
+            </div>
+        </div>
+
+        <div id="method1">
+            <div class="layui-row layui-form-item" style="display:block">
+                <div class="layui-col-md12">
+                    <div class="layui-col-md11">
+                        <label class="layui-form-label">商品描述</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="srcKeyWord" id="srcKeyWord"  autocomplete="off" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-col-md1">
+                        <button id="search_btn" class="layui-btn" type="button" onclick="search()" style="float: right; width: auto">&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
                     </div>
                 </div>
-                <div class="layui-col-md1">
-                    <button id="search_btn" class="layui-btn" type="button" onclick="search()" style="float: right; width: auto">&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
+            </div>
+            <div class="layui-form-item">
+
+                <div class="layui-input-block">
+                    <div class="layui-inline" style="margin: 0 auto">
+                        <label>已有某个国家的hscode（或片段）</label>
+                    </div>
+                    <input type="checkbox" name="switch" lay-skin="switch" lay-text="ON|OFF" lay-filter="switch">
+                    <div class="layui-input-block layui-col-md8" style="float: right">
+                        <input id="knownHscode" type="text" placeholder="请输入已知的hscode" class="layui-input" disabled="disabled">
+                    </div>
                 </div>
             </div>
         </div>
@@ -688,6 +703,20 @@
         layui.use('form', function(){
             var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
 
+            form.on('switch(switch)', function(data){
+                console.log(data.elem); //得到checkbox原始DOM对象
+                console.log(data.elem.checked); //开关是否开启，true或者false
+                console.log(data.value); //开关value值，也可以通过data.elem.value得到
+                console.log(data.othis); //得到美化后的DOM对象
+
+                if(data.elem.checked) {
+                    document.getElementById("knownHscode").disabled=false;
+                }else{
+                    document.getElementById("knownHscode").disabled="disabled";
+                    $('#knownHscode').html('');
+                }
+            });
+
             //……
             form.on('select(section)', function(data){
                 var section = data.value;
@@ -794,7 +823,7 @@
                                     ,{field: 'description', title: '描述'}
                                     ,{field: 'added', title: '增值税率', sort: true,}
                                     ,{field: 'general', title: '进口一般税率', sort: true,}
-                                    ,{field: 'favor', title: '进口优惠税率', sort: true,}
+                                    ,{field: 'favor', title: '相关性', sort: true,}
                                 ]]
                             });
                         });

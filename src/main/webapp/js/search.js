@@ -6,6 +6,7 @@ function search() {
     var srcKeyWord = $('#srcKeyWord').val();
     var assKeyWord = $('#assKeyWord').val();
     var subHeading = $('#sub_heading').val();
+    var knownHscode = $('#knownHscode').val();
     if((srcRegion === '')){
         alert('尚未开通该国的查询服务');
         return;
@@ -20,12 +21,13 @@ function search() {
         'srcRegion': srcRegion,
         'srcKeyWord': srcKeyWord,
         'assKeyWord': assKeyWord,
-        'subHeading' : subHeading
+        'subHeading' : subHeading,
+        'knownHscode' : knownHscode
     };
     $.ajax({
         cache: true,
         type: 'POST',
-        url: '../../search',
+        url: '../../search-p',
         data: data,
         async: true,
         error: function () {
@@ -54,7 +56,7 @@ function search() {
                         ,{field: 'description', title: '描述'}
                         ,{field: 'added', title: '增值税率', sort: true,}
                         ,{field: 'general', title: '进口一般税率', sort: true,}
-                        ,{field: 'favor', title: '进口优惠税率', sort: true,}
+                        ,{field: 'favor', title: '相关性', sort: true,}
                     ]]
                 });
 

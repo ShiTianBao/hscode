@@ -1,7 +1,10 @@
 package com.td.controller;
 
 import com.td.model.SearchModel;
+import com.td.util.CommonUtils;
 import com.td.util.DBUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -134,5 +137,53 @@ public class SearchController {
             }
         }
         return l1;
+    }
+
+    @RequestMapping("/search-p")
+    @ResponseBody
+    public List<SearchModel> searchP(String srcRegion, String srcKeyWord, String knownHscode) {
+        //srcKeyWord = "ducks";
+        //srcRegion = "chn";
+        System.out.println(knownHscode);
+        Boolean hasHscode = Boolean.FALSE;
+        String countryIndex = "0";
+        if(knownHscode.length()>0) {
+            hasHscode = Boolean.TRUE;
+        }
+        System.out.println(hasHscode);
+        switch (srcRegion) {
+            case "chn" : countryIndex = "38";
+            break;
+            case "usa" : countryIndex = "0";
+            break;
+            case "deu" : countryIndex = "1";
+            break;
+            case "sgp" : countryIndex = "2";
+        }
+        String cmdStr = "python D:/dnr/python/hscode/empiria_ltt.py" + srcKeyWord + hasHscode + knownHscode + countryIndex;
+        try{
+            Process pr = Runtime.getRuntime().exec(cmdStr);
+            pr.waitFor();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        String jsonString = CommonUtils.readJsonFile("D:/dnr/python/hscode/results/result.json");
+        System.out.println(jsonString);
+        //jsonString = jsonString.substring(1, jsonString.length()-1);
+        //jsonString = "[" + jsonString + "]";
+        System.out.println(jsonString);
+        JSONObject jsonArray = new JSONObject(jsonString);
+        List<SearchModel> searchModelList = new ArrayList<>();
+        for(int i=0; i<jsonArray.length(); i++) {
+            JSONObject json = jsonArray.getJSONObject(String.valueOf(i));
+            SearchModel sm = new SearchModel();
+            sm.setHscode(json.getString("HS CODE"));
+            sm.setDescription(json.getString("DESCRIPTION"));
+            sm.setFavor(String.valueOf(json.getBigDecimal("RELATEDNESS")));
+            searchModelList.add(sm);
+        }
+
+
+        return searchModelList;
     }
 }
